@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CodeQuiz</string>
+    <string name="question_increment">++x increments x by 1.</string>
+    <string name="question_increment2">x++ increments x by 1</string>
+    <string name="question_boolean">A boolean can only be true or false</string>
+    <string name="question_double">3.4 is an integer data type</string>
+    <string name="question_mod">4%3 = 1</string>
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+    <string name="next_button">Next</string>
+    <string name="correct_toast">Correct</string>
+    <string name="incorrect_toast">Wrong</string>
+</resources>
