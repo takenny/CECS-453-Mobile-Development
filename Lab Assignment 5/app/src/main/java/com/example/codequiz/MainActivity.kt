@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.ButtonBarLayout
+import androidx.lifecycle.ViewModelProviders
 
 
 private const val TAG = "MainActivity"
@@ -20,14 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var prevButton: Button
 
     private lateinit var questionTextView: TextView
-    private val questionBank = listOf(
-        Question(R.string.question_increment, true),
-        //YOU CODE to create four more questions
-        Question(R.string.question_increment2, true),
-        Question(R.string.question_boolean, true),
-        Question(R.string.question_double, false),
-        Question(R.string.question_mod, true)
-    )
+
 
     private var currentIndex = 0
 
@@ -49,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             checkAnswer(false)
         }
         nextButton.setOnClickListener {
-            currentIndex = (currentIndex + 1) % questionBank.size
+            quizViewModel.moveToNext()
             updateQuestion()
         }
 
@@ -82,17 +76,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateQuestion() {
-        val questionTextResId = questionBank[currentIndex].textResId
+        val questionTextResId = quizViewModel.currentQuestionText
         questionTextView.setText(questionTextResId)
     }
+
     private fun checkAnswer(userAnswer: Boolean) {
-        val correctAnswer = questionBank[currentIndex].answer
+        val correctAnswer = quizViewModel.currentQuestionAnswer
         val messageResId = if (correctAnswer == userAnswer) {
             R.string.correct_toast
         } else {
             R.string.incorrect_toast
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT)
-            .show()
+                .show()
     }
+
+    private val quizViewModel: QuizViewModel by lazy {
+        ViewModelProviders.of(this).get(QuizViewModel::class.java)
+    }
+
+
+
 }
+
