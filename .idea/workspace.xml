@@ -2,16 +2,71 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config>
-        <device id="pixel_xl" />
-      </config>
+      <config />
     </shared>
   </component>
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e77cef6-672d-4dea-93df-136cd8889041" name="Default Changelist" comment="" />
+    <list default="true" id="8df3f25e-d7f9-46a2-a06b-3a17b11c1a5e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/androidTest/java/com/example/criminalintent/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/java/com/example/criminalintent/Crime.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/java/com/example/criminalintent/CrimeFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/java/com/example/criminalintent/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/layout/fragment_crime.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/app/src/test/java/com/example/criminalintent/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CriminalIntent/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CECS 453 Mobile Development.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lab Assignment 4/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab Assignment 4/.idea/vcs.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,14 +78,10 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="valueResourceFile" />
-      </list>
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1ndCWzzoqfztEhh98L5qDk8QHlz" />
+  <component name="ProjectId" id="1ofvtPmpsKNdusmTf0JNiIsRJEe" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -38,11 +89,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="android.template.1438072050">
-      <recent name="com.example.myapplication" />
-    </key>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CriminalIntent" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -52,8 +99,8 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
-      <module name="My_Application.app" />
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="CriminalIntent.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -115,22 +162,30 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9e77cef6-672d-4dea-93df-136cd8889041" name="Default Changelist" comment="" />
-      <created>1611710616177</created>
+      <changelist id="8df3f25e-d7f9-46a2-a06b-3a17b11c1a5e" name="Default Changelist" comment="" />
+      <created>1613690673049</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1611710616177</updated>
+      <updated>1613690673049</updated>
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="1110" y="747" key="AndroidCreateXmlResourceDialog" timestamp="1611712474622">
+    <state x="1006" y="507" key="FileChooserDialogImpl" timestamp="1613693033590">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1110" y="747" key="AndroidCreateXmlResourceDialog/0.0.2560.1400/-1080.-209.1080.1880/2560.138.1920.1040@0.0.2560.1400" timestamp="1611712474622" />
-    <state x="635" y="910" key="FileChooserDialogImpl" timestamp="1611944055306">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="635" y="910" key="FileChooserDialogImpl/0.0.2560.1400/-1080.-209.1080.1880/2560.138.1920.1040@0.0.2560.1400" timestamp="1611944055306" />
+    <state x="1006" y="507" key="FileChooserDialogImpl/0.0.2560.1400/-1080.-209.1080.1880/2560.138.1920.1040@0.0.2560.1400" timestamp="1613693033590" />
   </component>
 </project>
