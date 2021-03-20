@@ -1,0 +1,148 @@
+package com.example.criminalintent
+
+import android.content.Context
+import android.os.Bundle
+import android.util.Log
+import android.view.*
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import java.util.*
+
+private const val TAG = "CrimeListFragment"
+
+class KTCrimeListFragment : Fragment() {
+    /**
+     * Required interface for hosting activities
+     */
+    interface KTCallbacks {
+        fun KTonCrimeSelected(crimeId: UUID)
+    }
+    private var KTcallbacks: KTCallbacks? = null
+
+    private lateinit var KTcrimeRecyclerView: RecyclerView
+    private var KTadapter: KTCrimeAdapter? = KTCrimeAdapter(emptyList())
+    private val KTcrimeListViewModel: KTCrimeListViewModel by lazy {
+        ViewModelProviders.of(this).get(KTCrimeListViewModel::class.java)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        KTcallbacks = context as KTCallbacks?
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    companion object {
+        fun newInstance(): KTCrimeListFragment {
+            return KTCrimeListFragment()
+        }
+    }
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_crime_list, container, false)
+        KTcrimeRecyclerView =
+            view.findViewById(R.id.crime_recycler_view) as RecyclerView
+        KTcrimeRecyclerView.layoutManager = LinearLayoutManager(context)
+        KTcrimeRecyclerView.adapter = KTadapter
+
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        KTcrimeListViewModel.KTcrimeListLiveData.observe(
+            viewLifecycleOwner,
+            Observer { crimes ->
+                crimes?.let {
+                    Log.i(TAG, "Got crimes ${crimes.size}")
+                    updateUI(crimes)
+                }
+            })
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        KTcallbacks = null
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.fragment_crime_list, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.new_crime -> {
+                val crime = Crime()
+                KTcrimeListViewModel.KTaddCrime(crime)
+                KTcallbacks?.KTonCrimeSelected(crime.id)
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun updateUI(crimes: List<Crime>) {
+        KTadapter = KTCrimeAdapter(crimes)
+        KTcrimeRecyclerView.adapter = KTadapter
+    }
+    private inner class KTCrimeHolder(view: View)
+        : RecyclerView.ViewHolder(view), View.OnClickListener  {
+
+        private lateinit var KTcrime: Crime
+
+        val KTtitleTextView: TextView = itemView.findViewById(R.id.crime_title)
+        val KTdateTextView: TextView = itemView.findViewById(R.id.crime_date)
+        private val KTsolvedImageView: ImageView = itemView.findViewById(R.id.crime_solved)
+
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        fun bind(crime: Crime) {
+            this.KTcrime = crime
+            KTtitleTextView.text = this.KTcrime.title
+            KTdateTextView.text = this.KTcrime.date.toString()
+            KTsolvedImageView.visibility = if (crime.isSolved) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
+        }
+
+        override fun onClick(v: View) {
+            KTcallbacks?.KTonCrimeSelected(KTcrime.id)
+        }
+
+    }
+
+    private inner class KTCrimeAdapter(var crimes: List<Crime>)
+        : RecyclerView.Adapter<KTCrimeHolder>() {
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
+                : KTCrimeHolder {
+            val KTview = layoutInflater.inflate(R.layout.list_item_crime, parent, false)
+            return KTCrimeHolder(KTview)
+        }
+
+        override fun onBindViewHolder(holder: KTCrimeHolder, position: Int) {
+            val KTcrime = crimes[position]
+            holder.bind(KTcrime)
+            }
+        override fun getItemCount() = crimes.size
+        }
+}

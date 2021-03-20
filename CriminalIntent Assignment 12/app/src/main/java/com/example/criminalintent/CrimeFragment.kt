@@ -20,8 +20,10 @@ import java.util.*
 
 private const val TAG = "CrimeFragment"
 private const val KTARG_CRIME_ID = "crime_id"
+private const val KTDIALOG_DATE = "DialogDate"
+private const val KTREQUEST_DATE = 0
 
-class CrimeFragment : Fragment() {
+class CrimeFragment : Fragment(), DatePickerFragment.KTCallbacks {
     private lateinit var KTcrime: Crime
     private lateinit var KTtitleField: EditText
     private lateinit var KTdateButton: Button
@@ -46,10 +48,6 @@ class CrimeFragment : Fragment() {
         KTtitleField = view.findViewById(R.id.crime_title) as EditText
         KTdateButton = view.findViewById(R.id.crime_date) as Button
         KTsolvedCheckBox = view.findViewById(R.id.crime_solved) as CheckBox
-        KTdateButton.apply {
-            text = KTcrime.date.toString()
-            isEnabled = false
-        }
 
         return view
     }
@@ -99,11 +97,23 @@ class CrimeFragment : Fragment() {
                 KTcrime.isSolved = isChecked
             }
         }
+
+        KTdateButton.setOnClickListener {
+            DatePickerFragment.newInstance(KTcrime.date).apply {
+                setTargetFragment(this@CrimeFragment, KTREQUEST_DATE)
+                show(this@CrimeFragment.requireFragmentManager(), KTDIALOG_DATE)
+            }
+        }
     }
 
     override fun onStop() {
         super.onStop()
         KTcrimeDetailViewModel.KTsaveCrime(KTcrime)
+    }
+
+    override fun onDateSelected(date: Date) {
+        KTcrime.date = date
+        updateUI()
     }
 
     private fun updateUI() {

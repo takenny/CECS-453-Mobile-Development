@@ -1,0 +1,13 @@
+1. Why is the main reason you want to wrap the DataPickerDialog in an instance of DialogFragment?
+This is because it gives the developer more options for presenting the dialog. One feature is that if rotated, the datepickerdialog without the dialog
+fragment will go away but if we wrap it in the fragment, it can be remade and displayed after being rotated. 
+
+2. Describe the steps (no coding specific) how to pass data from the CrimeFragment to DataPickerFragment.
+Need to write a new function newInstance(Date) to pass the CrimeFragment's date to DataPickerFragment. By doing so, we put the date in the DatePickerFragment's argument bundle where the
+DatePickerFragment can access it. Then we call the new function to pass the date. 
+
+3. Describe the steps (no coding specific) how to return data from DataPickerFragment to CrimeFragment.
+We need to update the model layer and own view and then declare a callback interface function that takes the new date parameter in order to return the
+data back to CrimeFragment. We first have to make the connection betwen the DataPickerFragment and CrimeFragment. Then afterwards we create the callback interface
+onDateSelected function to set the date on the crime property and update the UI. The DataPickerFragment then needs to send the date over and this is done
+by adding a listener to the Dialog. In the CrimeFragment, another Listener is used to rececive the date the user selects.  

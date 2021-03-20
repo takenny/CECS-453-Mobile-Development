@@ -1,0 +1,12 @@
+1. Describe the way you should implement the navigation from CrimeListFragment to CrimeFragment in response to the user pressing on a crime in the list.
+Initiate a fragment transaction on the hosting activity's fragment manager in CrimeListFragment's onClick(view). The onClick(View) would then get the
+main's fragment manager that then replacces crimelistfragment with a crimefragment. So when the user clicks on the crime in the list, the method onclick will
+repalce the list fragment with a crimefragment.
+
+2. What is the live data Transformation? Describe how it use in the lab assignment.
+Live data transformation is a way to set up a trigger-response relationship between the two LiveData objects. In this lab assignment, the transformation takes in
+two inputs, the live data object (the trigger) and a mapping function to return the object. After return, the object is nowhe transformation result which has a
+value that gets updated everytime a new value gets set on the input(the trigger).
+
+3. Why do you use Executor in the lab assignment?
+We use the executor to make a new thread so that we can perform the database operations (insert and update functions) safely.
