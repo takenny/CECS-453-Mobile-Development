@@ -1,3 +1,5 @@
 1. How do tell (code) the Fragment Manager that your fragment should receive a call on CreatOptionsMenu(...)?
-
+setHasOptionsMenu(hasMenu: Boolean)
+Fragment manager is told that the fragment will get a call to know that the CrimelistFragment has to receive a menu callback.
 2. What function should a fragment receive a callback to when a user presses an action button? What does it do?
+onOptionsItemSelected(MenuItem). The button when pressed, gets the instance of the MenuItem which is what the user selected.
