@@ -37,8 +37,6 @@ class CrimeFragment : Fragment(), DatePickerFragment.KTCallbacks {
     private lateinit var KTtitleField: EditText
     private lateinit var KTdateButton: Button
     private lateinit var KTsolvedCheckBox: CheckBox
-    private lateinit var KTreportButton: Button
-    private lateinit var KTsuspectButton: Button
 
     private val KTcrimeDetailViewModel: KTCrimeDetailViewModel by lazy {
         ViewModelProviders.of(this).get(KTCrimeDetailViewModel::class.java)
@@ -60,8 +58,6 @@ class CrimeFragment : Fragment(), DatePickerFragment.KTCallbacks {
         KTtitleField = view.findViewById(R.id.crime_title) as EditText
         KTdateButton = view.findViewById(R.id.crime_date) as Button
         KTsolvedCheckBox = view.findViewById(R.id.crime_solved) as CheckBox
-        KTreportButton = view.findViewById(R.id.crime_report) as Button
-        KTsuspectButton = view.findViewById(R.id.crime_suspect) as Button
 
         return view
     }
@@ -118,36 +114,6 @@ class CrimeFragment : Fragment(), DatePickerFragment.KTCallbacks {
                 show(this@CrimeFragment.requireFragmentManager(), KTDIALOG_DATE)
             }
         }
-
-        KTreportButton.setOnClickListener {
-            Intent(Intent.ACTION_SEND).apply {
-                type = "text/plain"
-                putExtra(Intent.EXTRA_TEXT, getCrimeReport())
-                putExtra(
-                        Intent.EXTRA_SUBJECT,
-                        getString(R.string.crime_report_subject))
-            }.also { intent ->
-                val KTchooserIntent =
-                        Intent.createChooser(intent, getString(R.string.send_report))
-                startActivity(KTchooserIntent)
-            }
-        }
-
-        KTsuspectButton.apply {
-            val KTpickContactIntent =
-                    Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI)
-            setOnClickListener {
-                startActivityForResult(KTpickContactIntent, KTREQUEST_CONTACT)
-            }
-
-            val KTpackageManager: PackageManager = requireActivity().packageManager
-            val KTresolvedActivity: ResolveInfo? =
-                    KTpackageManager.resolveActivity(KTpickContactIntent,
-                            PackageManager.MATCH_DEFAULT_ONLY)
-            if (KTresolvedActivity == null) {
-                isEnabled = false
-            }
-        }
     }
 
     override fun onStop() {
@@ -166,9 +132,6 @@ class CrimeFragment : Fragment(), DatePickerFragment.KTCallbacks {
         KTsolvedCheckBox.apply {
             isChecked = KTcrime.isSolved
             jumpDrawablesToCurrentState()
-        }
-        if (KTcrime.suspect.isNotEmpty()) {
-            KTsuspectButton.text = KTcrime.suspect
         }
     }
 
@@ -195,7 +158,6 @@ class CrimeFragment : Fragment(), DatePickerFragment.KTCallbacks {
                     val KTsuspect = it.getString(0)
                     KTcrime.suspect = KTsuspect
                     KTcrimeDetailViewModel.KTsaveCrime(KTcrime)
-                    KTsuspectButton.text = KTsuspect
                 }
             }
         }
