@@ -1,0 +1,5 @@
+1. [2 points] What object do you need to create to send a criminal report? Name the method to send the object?
+I would need to create an implicit intent to send a criminal report. The method to send the object is ACTION_SEND
+2.[2 points] If you started the activity for a result with ACTION_PICK, you will receive an intent via a method. What is the method name? 
+This intent include a data that points at the single contact the user picked. What is the data?
+The method name would be Intent.ACTION_PICK and the data that points atr a single contact is called CONTENT_URI which asks the system to pick an item in the database. 

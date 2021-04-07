@@ -203,7 +203,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.KTCallbacks {
     }
 
     private fun getCrimeReport(): String {
-        val solvedString = if (KTcrime.isSolved) {
+        val KTsolvedString = if (KTcrime.isSolved) {
             getString(R.string.crime_report_solved)
         } else {
             getString(R.string.crime_report_unsolved)
@@ -215,7 +215,7 @@ class CrimeFragment : Fragment(), DatePickerFragment.KTCallbacks {
             getString(R.string.crime_report_suspect, KTcrime.suspect)
         }
         return getString(R.string.crime_report,
-                KTcrime.title, KTdateString, solvedString, KTsuspect)
+                KTcrime.title, KTdateString, KTsolvedString, KTsuspect)
     }
 
     companion object {
