@@ -1,0 +1,5 @@
+1. What intent should you use to get a list of activities that match the intent from the PackagerManager? Why must you this intent?
+An implicity intent must be inheritted to return a list of all activities from the PackageManager. 
+
+2. What intent should you use to start an activity when a user press an app on the list items from the NerdLauncher? Why must you use this intent?
+We use an explicity intent to start the activity. We use this to launch the activity from NerdLauncher.

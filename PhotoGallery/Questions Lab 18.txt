@@ -1,0 +1,5 @@
+1. What do you need to Retrofit to implement and instantiate in order to make web request based on the API interfaced in chapter 24?
+We need the Retrofit builder and baseURL to create the FlickrApi interface
+
+2. What function should you call to execute the Web request represented by the Call object?
+fetchContents will execute the web request by tyhe Call Object.
