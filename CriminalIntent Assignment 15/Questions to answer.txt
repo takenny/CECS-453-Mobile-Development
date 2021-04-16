@@ -1,5 +1,7 @@
-1. [2 points] What object do you need to create to send a criminal report? Name the method to send the object?
-I would need to create an implicit intent to send a criminal report. The method to send the object is ACTION_SEND
-2.[2 points] If you started the activity for a result with ACTION_PICK, you will receive an intent via a method. What is the method name? 
-This intent include a data that points at the single contact the user picked. What is the data?
-The method name would be Intent.ACTION_PICK and the data that points atr a single contact is called CONTENT_URI which asks the system to pick an item in the database. 
+1. How do you  return a thumb nail picture? Answer should be the type of object you insert the picture and the method name that returns the object.
+ACTION_IMAGE_CAPTURE will take the picture then stick inside the Intent object returned in the onActvityResult.
+2. What is the function to scale a photo to a Bitmap?
+getScaledBitmap scales the bitmap image to a BitMap.
+3. What is the function to load Bitmap into ImageView?
+The UpDatePhotoView function loads the Bimap into the imageView.The function first gets the scaled bitmap using the getScaledBitmap function and 
+then loads it to the imageView with setImageBitmap.

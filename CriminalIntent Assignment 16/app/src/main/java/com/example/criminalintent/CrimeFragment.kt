@@ -215,9 +215,13 @@ class CrimeFragment : Fragment(), DatePickerFragment.KTCallbacks {
     private fun updatePhotoView() {
         if (KTphotoFile.exists()) {
             val KTbitmap = KTgetScaledBitmap(KTphotoFile.path, requireActivity())
+            KTphotoView.contentDescription =
+                    getString(R.string.crime_photo_image_description)
             KTphotoView.setImageBitmap(KTbitmap)
         } else {
             KTphotoView.setImageDrawable(null)
+            KTphotoView.contentDescription =
+                    getString(R.string.crime_photo_no_image_description)
         }
     }
 
