@@ -34,11 +34,20 @@ class FlickrFetchr {
         KTflickrApi = KTretrofit.create(FlickrApi::class.java)
     }
 
-    fun fetchPhotos(): LiveData<List<GalleryItem>> {
-        return fetchPhotoMetadata(KTflickrApi.fetchPhotos())
+    fun fetchPhotosRequest(): Call<FlickrResponse> {
+        return KTflickrApi.fetchPhotos()
     }
+
+    fun fetchPhotos(): LiveData<List<GalleryItem>> {
+        return fetchPhotoMetadata(fetchPhotosRequest())
+    }
+
+    fun searchPhotosRequest(query: String): Call<FlickrResponse> {
+        return KTflickrApi.searchPhotos(query)
+    }
+
     fun searchPhotos(query: String): LiveData<List<GalleryItem>> {
-        return fetchPhotoMetadata(KTflickrApi.searchPhotos(query))
+        return fetchPhotoMetadata(searchPhotosRequest(query))
     }
     private fun fetchPhotoMetadata(KTflickrRequest: Call<FlickrResponse>)
             : LiveData<List<GalleryItem>> {
