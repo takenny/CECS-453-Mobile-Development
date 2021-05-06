@@ -51,9 +51,9 @@ class KTPollWorker(val KTcontext: Context, workerParams: WorkerParameters)
                     .setContentIntent(KTpendingIntent)
                     .setAutoCancel(true)
                     .build()
-            //val KTnotificationManager = NotificationManagerCompat.from(KTcontext)
-          //  KTnotificationManager.notify(0, KTnotification)
-            showBackgroundNotification(0, KTnotification)
+            val KTnotificationManager = NotificationManagerCompat.from(KTcontext)
+            KTnotificationManager.notify(0, KTnotification)
+            //showBackgroundNotification(0, KTnotification)
         }
 
 
