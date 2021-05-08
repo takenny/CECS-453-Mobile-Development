@@ -1,5 +1,6 @@
 package com.bignerdranch.android.photogallery
 
+import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
@@ -10,6 +11,7 @@ import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.SearchView
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
@@ -155,9 +157,27 @@ class PhotoGalleryFragment : VisibleFragment() {
 
     }
 
-    private class PhotoHolder(private val itemImageView: ImageView)
-        : RecyclerView.ViewHolder(itemImageView) {
+    private inner class PhotoHolder(private val itemImageView: ImageView)
+        : RecyclerView.ViewHolder(itemImageView),
+        View.OnClickListener {
+
+        private lateinit var KTgalleryItem: GalleryItem
+        init {
+            itemView.setOnClickListener(this)
+        }
+
         val KTbindDrawable: (Drawable) -> Unit = itemImageView::setImageDrawable
+
+        fun bindGalleryItem(item: GalleryItem) {
+            KTgalleryItem = item
+        }
+
+        override fun onClick(view: View) {
+            val KTintent = PhotoPageActivity
+                    .newIntent(requireContext(), KTgalleryItem.photoPageUri)
+            startActivity(KTintent)
+        }
+
     }
 
     private inner class PhotoAdapter(private val galleryItems: List<GalleryItem>)
@@ -176,6 +196,7 @@ class PhotoGalleryFragment : VisibleFragment() {
         override fun getItemCount(): Int = galleryItems.size
         override fun onBindViewHolder(holder: PhotoHolder, position: Int) {
             val KTgalleryItem = galleryItems[position]
+            holder.bindGalleryItem(KTgalleryItem)
             val KTplaceholder: Drawable = ContextCompat.getDrawable(
                 requireContext(),
                 R.drawable.bill_up_close

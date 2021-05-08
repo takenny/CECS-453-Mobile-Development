@@ -20,12 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PhotoPageActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
         <receiver android:name=".NotificationReceiver"
             android:permission="com.bignerdranch.android.photogallery.PRIVATE"
             android:exported="false">
-            <intent-filter android:priority="-999">
+            <intent-filter android:priority="999">
                 <action
                     android:name="com.bignerdranch.android.photogallery.SHOW_NOTIFICATION" />
             </intent-filter>
